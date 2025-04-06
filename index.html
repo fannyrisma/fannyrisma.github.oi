@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Website Sederhana</title>
+    </head>
+        <body>
+        
+            <header>
+        
+            <div>
+                <img src="gambar/sampul2.png"class="cover-image">
+            </div>
+
+            <nav>
+                    <a href="#">Home</a> |
+                    <a href="/About Me/">About Me</a> |
+                    <a href="/My Project/">My Project</a> |
+                    <a href="/Article/">Article</a> |
+                    <a href="/Multimedia/">Multimedia</a> |
+                    <a href="/Feedback/">Feedback</a> |
+            </nav>
+
+            <h1 style="text-align:center;">Welcome to "Personal Bloging"</h1>
+        </header>
+        
+        <main>
+            <section id="content">
+                <article id="AboutMe"class="card">
+                    <h2>About Me</h2>
+                    <figure>
+                    <img src="gambar/picture1.png"class="featured-image" alt="About Me">
+                    <figcaption>WHO AM I?</figcaption>
+                    <p>saya merupakan mahasiswa aktif yang memiliki minat besar di bidang teknologi, dan digital marketing. 
+                        Selain fokus pada perkuliahan, saya juga aktif dalam berbagai kegiatan organisasi dan komunitas yang membantu saya mengembangkan keterampilan serta memperluas wawasan.</p>
+                    </figure>
+                </article>
+
+                <article id="Hobbies"class="card">
+                    <h3>Hobbies</h3>
+                    <figcaption>Minat Saya :</figcaption>
+                    <ol>
+                        <li>Saya sangat menyukai badminton, meskipun tidak terlalu mahir memainkannya</li>
+                        <li>Selain itu, saya gemar jalan-jalan untuk mengeksplorasi tempat baru dan merasakan pengalaman berbeda</li>
+                        <li>Menonton konser juga menjadi salah satu hobi favorit saya</li>
+                    </ol> 
+                </atricle>
+            </section>
+
+            <section id="content">
+                <article id="MyProject"class="card">
+                    <h2>My Project</h2>
+                    <h3>UI/UX Design Stational Apps</h3>
+                    <figure>
+                        <img src="gambar/picture2.png"class="featured-image" alt="My Project">
+                        <p> UI/UX Design Stationery Apps sebagai aplikasi penjualan alat tulis yang dibuat untuk memberikan solusi kepada pada penjual yang memerlukan catatan stok pergudangan dan algoritma pencatatan penjualan.</p>
+                        <p> Project ini saya buat untuk  menyelesaikan tugas akhir semester 3 mata kuliah PPIC</p>
+                    </figure>
+
+                    <h3>UI/UX Design SADARI Apps</h3>
+                    <figure>
+                        <img src="gambar/picture3.png"class="featured-image" alt="My Project">
+                        <p> UI/UX Design SADARI (sampah dadi rezeki) dimana aplikasi ini dibuat untuk memudahkan masyarakat untuk mendaur ulang sampah didaerah mereka menjadi rezeki dengan memberikannya kepada ormas kebersihan terkait</p>
+                        <p> Project ini saya selesaikan untuk memenuhi tugas akhir semester 3 mata kuliah "Wawasan Lingkungan"</p>
+                    </figure>
+                </article>
+            </section>
+
+                <article>
+                    <h2>Article</h2>
+                    <h3><a href="https://si.uisi.ac.id/" target="_blank">Mengenal Sistem Informasi UISI</a></h3>
+                    <p>Artikel ini menjelaskan tentang Program Studi Sistem Informasi UISI yang fokus pada pemanfaatan teknologi informasi untuk solusi bisnis, dengan keunggulan di bidang ERP dan prospek karir seperti analis sistem dan konsultan TI.</p>
+                    </article>
+                
+            <section id="content">
+                <article id="MultimediaMovie"class="card">
+                    <h2>The Movie</h2>
+                    <h3>Upin dan Ipin</h3>
+                    <video width="1300" height="480" right="240" controls>
+                    <source src="movie.mp4" type="video/mp4">
+                    </video> 
+                </article>
+
+                <article id="MultimediaSong"class="card">
+                    <h2>This Song</h2>
+                    <p>Lagu Kebangsaan Indonesia Saya</p>
+                    <p> Bentuk saya nasionalisme dan cinta tanah air</p>
+                    <audio controls>
+                    <source src="Indonesia Raya - Instrumental Lagu Nasional Indonesia.mp3" type="audio/mp3">
+                    </audio>
+                </article>
+            </section>
+
+            <script>
+                //menyimpan saveFeedback
+               function saveFeedback(event){
+                event.preventDefault();
+
+                const nama = document.getElementById('fname').value;
+                const pesan = document.getElementById('pesan').value;
+                const email = document.getElementById('email').value;
+
+                //ambil data yang sudah ada
+                let existingFeedback = localStorage.getItem('feedback');
+                let feedbackArray = [];
+
+                ///jika ada data yang sudah masuk, parse menjadi array
+                if (existingFeedback){
+                    feedbackArray = JSON.parse(existingFeedback);
+                }
+
+                //tambahkan data baru ke array 
+                feedbackArray.push({
+                    nama: nama,
+                    pesan: pesan,
+                    email: email 
+                });
+
+                //simpan kembali ke localstorage  
+                localStorage.setItem('feedback',JSON.stringify(feedbackArray));
+                alert('kritik dan saran diterima!!!');
+                document.getElementById('contactForm').reset();
+                //tampilkan semua feedback setelah menyimpan
+                displayFeedback();
+               }
+
+               // Menampilkan semua feedback di konsol
+               function displayFeedback() {
+                const feedbackData = JSON.parse(localStorage.getItem('feedback'));
+                
+                if (feedbackData) {
+                    feedbackData.forEach(feedback => {
+                        console.log(`Nama: ${feedback.nama}, Pesan: ${feedback.pesan}, Email: ${feedback.email}`);
+                    });
+                } else {
+                    console.log("Tidak ada feedback yang tersedia.");
+                }
+            }
+
+               //menghapus data feeddback
+               function clearFeedback(){
+                localStorage.removeItem('feedback');
+                alert('semua feeddback telah dihapus');
+                displayFeedback();
+               }
+
+               //window.onload = dispaly feedback;
+
+        </script>
+
+                <section id="contact">
+                    <h2>Feedback</h2>
+                    <form id="contactForm"onsubmit="saveFeedback(event)">
+                        <label for="fname">Nama :</label><br>
+                        <input type="text" id="fname" name="fname" required><br><br>
+                
+                        <label for="pesan">Pesan:</label><br>
+                        <textarea id="pesan" name="pesan" required></textarea><br><br>
+                
+                        <label for="email">Email:</label><br>
+                        <input type="email" id="email" name="email" required><br><br>
+                
+                        <button type="submit">Kirim</button>
+                    </form>
+                    <div id="displayArea"></div>
+                </section>
+
+            <footer>
+                <p style="text-align:center;">Email: fanny.auliasari23@student.uisi.ac.id</p>
+                <p style="text-align:center;">&copy; 2025 Fanny Risma Auliasari - Semua Hak Dilindungi</p>
+            </footer>
+
+        </main>
+    </body>
+</html>
