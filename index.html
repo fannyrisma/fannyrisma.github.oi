@@ -1,31 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
         <title>Website Sederhana</title>
+        <link rel="stylesheet" href="style/style.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
     </head>
+
         <body>
-        
             <header>
         
             <div>
-                <img src="gambar/sampul2.png"class="cover-image">
+                <img src="gambar/sampul2.png"class="cover-image" style="height: 100%;">
             </div>
 
             <nav>
-                    <a href="#">Home</a> |
-                    <a href="/About Me/">About Me</a> |
-                    <a href="/My Project/">My Project</a> |
-                    <a href="/Article/">Article</a> |
-                    <a href="/Multimedia/">Multimedia</a> |
-                    <a href="/Feedback/">Feedback</a> |
+                    <li><a href="#About Me">About Me</a></li>
+                    <li><a href="#My Project">My Project</a></li> 
+                    <li><a href="#Article">Article</a></li>
+                    <li><a href="#Multimedia">Multimedia</a></li> 
+                    <li><a href="#Feedback">Feedback</a></li>
             </nav>
 
             <h1>Welcome to "Personal Bloging"</h1>
         </header>
         
         <main>
-            <section id="content">
-                <article id="AboutMe"class="card">
+            <section id="About Me"></section>
+                <article class="card">
                     <h2>About Me</h2>
                     <figure>
                     <img src="gambar/picture1.png"class="featured-image" alt="About Me">
@@ -33,9 +36,6 @@
                     <p>saya merupakan mahasiswa aktif yang memiliki minat besar di bidang teknologi, dan digital marketing. 
                         Selain fokus pada perkuliahan, saya juga aktif dalam berbagai kegiatan organisasi dan komunitas yang membantu saya mengembangkan keterampilan serta memperluas wawasan.</p>
                     </figure>
-                </article>
-
-                <article id="Hobbies"class="card">
                     <h3>Hobbies</h3>
                     <figcaption>Minat Saya :</figcaption>
                     <ol>
@@ -43,11 +43,10 @@
                         <li>Selain itu, saya gemar jalan-jalan untuk mengeksplorasi tempat baru dan merasakan pengalaman berbeda</li>
                         <li>Menonton konser juga menjadi salah satu hobi favorit saya</li>
                     </ol> 
-                </atricle>
-            </section>
+                </article>
 
-            <section id="content">
-                <article id="MyProject"class="card">
+            <section id="My Project"></section>
+                <article id="content"class="card">
                     <h2>My Project</h2>
                     <h3>UI/UX Design Stational Apps</h3>
                     <figure>
@@ -63,16 +62,16 @@
                         <p> Project ini saya selesaikan untuk memenuhi tugas akhir semester 3 mata kuliah "Wawasan Lingkungan"</p>
                     </figure>
                 </article>
-            </section>
 
-                <article>
+            <section id="Article"></section>
+                <article class="card">
                     <h2>Article</h2>
                     <h3><a href="https://si.uisi.ac.id/" target="_blank">Mengenal Sistem Informasi UISI</a></h3>
                     <p>Artikel ini menjelaskan tentang Program Studi Sistem Informasi UISI yang fokus pada pemanfaatan teknologi informasi untuk solusi bisnis, dengan keunggulan di bidang ERP dan prospek karir seperti analis sistem dan konsultan TI.</p>
-                    </article>
+                </article>
                 
-            <section id="content">
-                <article id="MultimediaMovie"class="card">
+            <section id="Multimedia"></section>
+                <article class="card" style="width: auto;">
                     <h2>The Movie</h2>
                     <h3>Upin dan Ipin</h3>
                     <video width="1300" height="480" right="240" controls>
@@ -80,7 +79,7 @@
                     </video> 
                 </article>
 
-                <article id="MultimediaSong"class="card">
+                <article class="card">
                     <h2>This Song</h2>
                     <p>Lagu Kebangsaan Indonesia Saya</p>
                     <p> Bentuk saya nasionalisme dan cinta tanah air</p>
@@ -147,14 +146,15 @@
 
         </script>
 
-                <section id="contact">
+                <section id="Feedback"></section>
+                    <article id="contactForm" class="card" style="text-align: center;">
                     <h2>Feedback</h2>
                     <form id="contactForm"onsubmit="saveFeedback(event)">
                         <label for="fname">Nama :</label><br>
                         <input type="text" id="fname" name="fname" required><br><br>
                 
                         <label for="pesan">Pesan:</label><br>
-                        <textarea id="pesan" name="pesan" required></textarea><br><br>
+                        <textarea id="text" name="pesan" required></textarea><br><br>
                 
                         <label for="email">Email:</label><br>
                         <input type="email" id="email" name="email" required><br><br>
@@ -162,7 +162,7 @@
                         <button type="submit">Kirim</button>
                     </form>
                     <div id="displayArea"></div>
-                </section>
+                </article>
 
             <footer>
                 <p>Email: fanny.auliasari23@student.uisi.ac.id</p>
